@@ -1,0 +1,1244 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   FRONT PAGE
+===================================================== */
+
+.front-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+    padding: 40px 20px;
+}
+
+.front-page.hidden {
+    display: none;
+}
+
+.front-container {
+    width: 100%;
+    max-width: 1050px;
+    text-align: center;
+}
+
+.logo-large {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.welcome-text {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.front-container h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.front-container h1 span {
+    display: block;
+    color: #2563eb;
+}
+
+.front-description {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.front-container h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.front-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.front-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    transition: 0.25s;
+}
+
+.front-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+.front-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.front-card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.front-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.front-button {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.front-button:hover {
+    background: #1d4ed8;
+}
+
+.emergency-button {
+    background: #dc2626;
+}
+
+.emergency-button:hover {
+    background: #b91c1c;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app.hidden {
+    display: none;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    width: 250px;
+    background: #0f172a;
+    color: white;
+    min-height: 100vh;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.sidebar-logo {
+    font-size: 21px;
+    font-weight: 800;
+    padding: 5px 12px 30px;
+}
+
+.sidebar-label {
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 1px;
+    padding: 15px 12px 8px;
+}
+
+.nav-button {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    padding: 13px 12px;
+    text-align: left;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 3px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-button:hover {
+    background: #1e293b;
+    color: white;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.home-button {
+    width: 100%;
+    padding: 12px;
+    background: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   MAIN AREA
+===================================================== */
+
+.main-area {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    height: 82px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 18px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h2 {
+    font-size: 18px;
+}
+
+.topbar p {
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.topbar-user {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page {
+    display: none;
+    padding: 35px;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    color: #2563eb;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+}
+
+.page-heading h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-heading p:last-child {
+    color: #64748b;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.stat-icon.blue {
+    background: #dbeafe;
+}
+
+.stat-icon.orange {
+    background: #ffedd5;
+}
+
+.stat-icon.green {
+    background: #dcfce7;
+}
+
+.stat-icon.red {
+    background: #fee2e2;
+}
+
+.stat-card span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.stat-card strong {
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-heading h2 {
+    font-size: 18px;
+}
+
+.card-heading p {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.request-row {
+    padding: 15px 0;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.request-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.request-info span {
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.status-badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-badge.matched {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge.completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.availability-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.availability-item strong {
+    color: #2563eb;
+}
+
+.availability-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.availability-bar div {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.search-intro h2 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.search-intro p {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 900px;
+}
+
+.form-card h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.form-description {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.full {
+    grid-column: 1 / -1;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.input-group input,
+.input-group select {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+    font-size: 13px;
+    background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #2563eb;
+}
+
+.primary-button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty-state {
+    background: white;
+    border: 1px dashed #cbd5e1;
+    border-radius: 15px;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.empty-state div {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   HOSPITAL RESULT CARDS
+===================================================== */
+
+.hospital-result {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 22px;
+    margin-bottom: 15px;
+}
+
+.hospital-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hospital-top h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.hospital-location {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.match-badge {
+    background: #dcfce7;
+    color: #166534;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.resource-box {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.resource-box span {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.resource-box strong {
+    font-size: 17px;
+}
+
+.result-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+.fresh {
+    color: #16a34a;
+    font-size: 12px;
+}
+
+.outdated {
+    color: #dc2626;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   ADMISSION RESULT
+===================================================== */
+
+.success-card {
+    background: white;
+    border: 1px solid #bbf7d0;
+    border-left: 5px solid #16a34a;
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 20px;
+    max-width: 900px;
+}
+
+.success-card h2 {
+    color: #15803d;
+    margin-bottom: 15px;
+}
+
+.success-card p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   REQUEST STATUS
+===================================================== */
+
+.status-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.status-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-label {
+    font-size: 10px;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+.status-top h2 {
+    margin-top: 5px;
+}
+
+.request-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 25px 0;
+    margin-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.request-details span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.request-details strong {
+    font-size: 14px;
+}
+
+.tracker {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.tracker-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.tracker-step span {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.tracker-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.tracker-step.done .tracker-circle {
+    background: #16a34a;
+    color: white;
+}
+
+.tracker-step.current .tracker-circle {
+    background: #2563eb;
+    color: white;
+}
+
+.tracker-line {
+    height: 2px;
+    background: #e2e8f0;
+    flex: 1;
+    margin-bottom: 25px;
+}
+
+.fresh-badge {
+    background: #ecfdf5;
+    color: #047857;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-message {
+    color: #475569;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CAPACITY
+===================================================== */
+
+.capacity-current {
+    max-width: 900px;
+}
+
+.capacity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.capacity-box {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.capacity-box span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.capacity-box strong {
+    font-size: 25px;
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-area {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+    }
+
+    .front-container h1 {
+        font-size: 35px;
+    }
+
+    .front-options {
+        grid-template-columns: 1fr;
+    }
+
+    .page {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-group.full {
+        grid-column: auto;
+    }
+
+    .request-details {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker {
+        overflow-x: auto;
+        min-width: 550px;
+    }
+
+    .capacity-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .sidebar-logo span,
+    .sidebar-label,
+    .nav-button span,
+    .home-button {
+        display: none;
+    }
+
+    .sidebar-logo {
+        text-align: center;
+        padding: 5px 0 25px;
+    }
+
+    .nav-button {
+        justify-content: center;
+    }
+
+    .main-area {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .topbar {
+        padding: 15px;
+    }
+
+    .topbar-user {
+        display: none;
+    }
+
+}
+/* ================= FRONT PAGE BACKGROUND ================= */
+
+#frontPage {
+    min-height: 100vh;
+    background-image:
+        linear-gradient(rgba(5, 45, 65, 0.55), rgba(5, 45, 65, 0.55)),
+        url("images/hospital-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#frontPage .front-container {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    padding: 45px;
+    max-width: 950px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+#frontPage .logo-large {
+    font-size: 32px;
+    font-weight: 800;
+    color: #087ea4;
+    margin-bottom: 10px;
+}
+
+#frontPage .welcome-text {
+    color: #5f7480;
+    margin-bottom: 10px;
+}
+
+#frontPage h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    color: #12313d;
+    margin: 15px 0;
+}
+
+#frontPage h1 span {
+    color: #0794bd;
+    display: block;
+}
+
+#frontPage .front-description {
+    color: #607781;
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+#frontPage h2 {
+    color: #12313d;
+    margin-bottom: 22px;
+}
+
+#frontPage .front-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+#frontPage .front-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(8, 126, 164, 0.15);
+    border-radius: 18px;
+    padding: 28px;
+    transition: 0.3s ease;
+}
+
+#frontPage .front-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+#frontPage .front-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+#frontPage .front-card h3 {
+    color: #12313d;
+    margin-bottom: 10px;
+}
+
+#frontPage .front-card p {
+    color: #667b84;
+    line-height: 1.5;
+    min-height: 70px;
+}
+
+#frontPage .front-button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    background: #087ea4;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#frontPage .front-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+#frontPage .emergency-button {
+    background: #d94b4b;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    #frontPage .front-container {
+        padding: 30px 20px;
+    }
+
+    #frontPage h1 {
+        font-size: 32px;
+    }
+
+    #frontPage .front-options {
+        grid-template-columns: 1fr;
+    }
+}
+/* Emergency card image */
+
+#frontPage .front-image {
+    width: 100%;
+    height: 190px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+#frontPage .front-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* ================= HOSPITAL RESULT CARD ================= */
+
+.hospital-result-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    border: 1px solid #e5eef2;
+}
+
+.hospital-image {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.hospital-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hospital-details {
+    padding: 24px;
+}
+
+.hospital-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.hospital-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #12313d;
+}
+
+.match-badge {
+    background: #e8f7ef;
+    color: #16834b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hospital-location {
+    color: #657982;
+    margin-bottom: 20px;
+}
+
+.hospital-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.hospital-info-box {
+    background: #f6fafb;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+}
+
+.hospital-info-box strong {
+    display: block;
+    font-size: 20px;
+    color: #087ea4;
+}
+
+.hospital-info-box span {
+    font-size: 12px;
+    color: #687b83;
+}
+
+.hospital-meta {
+    display: flex;
+    gap: 25px;
+    color: #526a73;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.hospital-status {
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: #eaf8f0;
+    color: #16834b;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hospital-action {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #087ea4;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hospital-action:hover {
+    opacity: 0.9;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .hospital-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hospital-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hospital-image {
+        height: 190px;
+    }
+}

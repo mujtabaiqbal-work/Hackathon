@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareRoute</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     FRONT PAGE
+===================================================== -->
+
+<section id="frontPage" class="front-page active">
+
+    <div class="front-container">
+
+        <div class="logo-large">
+            🏥 <span>CareRoute</span>
+        </div>
+
+        <p class="welcome-text">
+            Smart Hospital Matching System
+        </p>
+
+        <h1>
+            Find the Right Hospital
+            <span>When You Need It</span>
+        </h1>
+
+        <p class="front-description">
+            CareRoute helps patients find suitable hospitals
+            based on available resources and hospital capacity.
+        </p>
+
+        <h2>How can we help you today?</h2>
+
+        <div class="front-options">
+
+            <!-- Regular Patient -->
+
+            <div class="front-card regular-card">
+
+                <div class="front-image">
+    <img src="images/patient.png" alt="Regular Patient">
+</div>
+
+                <h3>Regular Patient</h3>
+
+                <p>
+                    Need hospital admission or routine medical care?
+                    Register your details and request admission.
+                </p>
+
+                <button
+                    class="front-button"
+                    onclick="openPage('admission')">
+
+                    Continue as Patient →
+
+                </button>
+
+            </div>
+
+
+            <!-- Emergency -->
+
+            <div class="front-card emergency-card">
+
+               <div class="front-image">
+    <img src="images/emergency.png" alt="Emergency Care">
+</div>
+
+                <h3>Emergency Care</h3>
+
+                <p>
+                    Need urgent care, ICU, emergency beds,
+                    or other hospital resources?
+                </p>
+
+                <button
+                    class="front-button emergency-button"
+                    onclick="openPage('search')">
+
+                    Find Emergency Care →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<div id="app" class="app hidden">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🏥
+            <span>CareRoute</span>
+        </div>
+
+        <p class="sidebar-label">
+            MAIN MENU
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="openPage('dashboard')">
+
+            📊
+            <span>Dashboard</span>
+
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="openPage('search')">
+
+            🔎
+            <span>Find Hospital</span>
+
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="openPage('admission')">
+
+            👤
+            <span>Patient Admission</span>
+
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="openPage('status')">
+
+            📋
+            <span>My Requests</span>
+
+        </button>
+
+        <p class="sidebar-label">
+            HOSPITAL
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="openPage('capacity')">
+
+            🏥
+            <span>Hospital Capacity</span>
+
+        </button>
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="home-button"
+                onclick="goHome()">
+
+                ← Back to Home
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN AREA
+    ================================================== -->
+
+    <main class="main-area">
+
+        <header class="topbar">
+
+            <div>
+                <h2 id="topbarTitle">
+                    Dashboard
+                </h2>
+
+                <p id="topbarSubtitle">
+                    CareRoute hospital matching system
+                </p>
+            </div>
+
+            <div class="topbar-user">
+                👤 Frontend Demo
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="page active">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        OVERVIEW
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Overview of patients, requests and hospital capacity.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        👥
+                    </div>
+
+                    <div>
+                        <span>Total Patients</span>
+                        <strong id="totalPatients">128</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        📋
+                    </div>
+
+                    <div>
+                        <span>Active Requests</span>
+                        <strong id="activeRequests">24</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        🏥
+                    </div>
+
+                    <div>
+                        <span>Available Hospitals</span>
+                        <strong id="availableHospitals">8</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        🚨
+                    </div>
+
+                    <div>
+                        <span>Emergency Requests</span>
+                        <strong id="emergencyRequests">7</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <h2>Recent Requests</h2>
+                            <p>Latest patient requests</p>
+                        </div>
+                    </div>
+
+                    <div class="request-row">
+
+                        <div class="request-info">
+                            <strong>REQ1024</strong>
+                            <span>ICU Required</span>
+                        </div>
+
+                        <span class="status-badge pending">
+                            Pending
+                        </span>
+
+                    </div>
+
+
+                    <div class="request-row">
+
+                        <div class="request-info">
+                            <strong>REQ1023</strong>
+                            <span>General Bed</span>
+                        </div>
+
+                        <span class="status-badge matched">
+                            Matched
+                        </span>
+
+                    </div>
+
+
+                    <div class="request-row">
+
+                        <div class="request-info">
+                            <strong>REQ1022</strong>
+                            <span>Emergency Bed</span>
+                        </div>
+
+                        <span class="status-badge completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <h2>Hospital Availability</h2>
+                            <p>Current resource overview</p>
+                        </div>
+                    </div>
+
+                    <div class="availability-item">
+                        <span>ICU Beds</span>
+                        <strong>6 available</strong>
+                    </div>
+
+                    <div class="availability-bar">
+                        <div style="width: 65%"></div>
+                    </div>
+
+
+                    <div class="availability-item">
+                        <span>General Beds</span>
+                        <strong>47 available</strong>
+                    </div>
+
+                    <div class="availability-bar">
+                        <div style="width: 80%"></div>
+                    </div>
+
+
+                    <div class="availability-item">
+                        <span>Emergency Beds</span>
+                        <strong>16 available</strong>
+                    </div>
+
+                    <div class="availability-bar">
+                        <div style="width: 50%"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOSPITAL SEARCH
+        ================================================== -->
+
+        <section
+            id="search"
+            class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        PATIENT SERVICES
+                    </p>
+
+                    <h1>
+                        Find a Hospital
+                    </h1>
+
+                    <p>
+                        Search hospitals based on required resources.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="search-card">
+
+                <div class="search-intro">
+
+                    <h2>
+                        What do you need?
+                    </h2>
+
+                    <p>
+                        Select a resource to find hospitals with availability.
+                    </p>
+
+                </div>
+
+
+                <div class="search-form">
+
+                    <div class="input-group">
+
+                        <label>
+                            Patient ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="searchPatientId"
+                            placeholder="e.g. P1024">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Required Resource
+                        </label>
+
+                        <select id="resourceType">
+
+                            <option value="">
+                                Select resource
+                            </option>
+
+                            <option value="ICU">
+                                ICU Bed
+                            </option>
+
+                            <option value="General Bed">
+                                General Bed
+                            </option>
+
+                            <option value="Emergency Bed">
+                                Emergency Bed
+                            </option>
+
+                            <option value="Ventilator">
+                                Ventilator
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        onclick="searchHospitals()">
+
+                        🔎 Find Matches
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="searchResults">
+
+                <div class="empty-state">
+
+                    <div>
+                        🔎
+                    </div>
+
+                    <h3>
+                        Search for a hospital
+                    </h3>
+
+                    <p>
+                        Select a required resource above to see available hospitals.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PATIENT ADMISSION
+        ================================================== -->
+
+        <section
+            id="admission"
+            class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        REGULAR PATIENT
+                    </p>
+
+                    <h1>
+                        Patient Admission
+                    </h1>
+
+                    <p>
+                        Enter patient information to request hospital admission.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <h2>
+                    Patient Information
+                </h2>
+
+                <p class="form-description">
+                    Please provide the basic information required for admission.
+                </p>
+
+
+                <form id="admissionForm">
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter full name"
+                                required>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Age
+                            </label>
+
+                            <input
+                                type="number"
+                                id="patientAge"
+                                min="0"
+                                placeholder="Enter age"
+                                required>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Gender
+                            </label>
+
+                            <select
+                                id="patientGender"
+                                required>
+
+                                <option value="">
+                                    Select gender
+                                </option>
+
+                                <option>
+                                    Male
+                                </option>
+
+                                <option>
+                                    Female
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="patientPhone"
+                                placeholder="03XX-XXXXXXX"
+                                required>
+
+                        </div>
+
+
+                        <div class="input-group full">
+
+                            <label>
+                                Required Department / Treatment
+                            </label>
+
+                            <input
+                                type="text"
+                                id="patientRequirement"
+                                placeholder="e.g. General Medicine, Surgery"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+
+                        ✓ Request Admission
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div id="admissionResult"></div>
+
+        </section>
+
+
+        <!-- =================================================
+             REQUEST STATUS
+        ================================================== -->
+
+        <section
+            id="status"
+            class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        PATIENT REQUEST
+                    </p>
+
+                    <h1>
+                        My Requests
+                    </h1>
+
+                    <p>
+                        Track your hospital request status.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <div class="status-top">
+
+                    <div>
+                        <span class="small-label">
+                            REQUEST ID
+                        </span>
+
+                        <h2>
+                            REQ1024
+                        </h2>
+                    </div>
+
+                    <span class="status-badge pending">
+                        Pending Match
+                    </span>
+
+                </div>
+
+
+                <div class="request-details">
+
+                    <div>
+                        <span>Patient</span>
+                        <strong>Ali Ahmed</strong>
+                    </div>
+
+                    <div>
+                        <span>Resource</span>
+                        <strong>ICU Bed</strong>
+                    </div>
+
+                    <div>
+                        <span>Created</span>
+                        <strong>10 minutes ago</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="tracker">
+
+                    <div class="tracker-step done">
+
+                        <div class="tracker-circle">
+                            ✓
+                        </div>
+
+                        <span>
+                            Request Created
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <div class="tracker-step done">
+
+                        <div class="tracker-circle">
+                            ✓
+                        </div>
+
+                        <span>
+                            Searching Hospitals
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <div class="tracker-step current">
+
+                        <div class="tracker-circle">
+                            3
+                        </div>
+
+                        <span>
+                            Hospital Match
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <div class="tracker-step">
+
+                        <div class="tracker-circle">
+                            4
+                        </div>
+
+                        <span>
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h2>
+                            Request Information
+                        </h2>
+
+                        <p>
+                            Latest information about your request
+                        </p>
+                    </div>
+
+                    <span class="fresh-badge">
+                        🕒 Updated 5 minutes ago
+                    </span>
+
+                </div>
+
+
+                <p class="status-message">
+                    CareRoute is currently checking hospitals
+                    with available ICU capacity.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOSPITAL CAPACITY
+        ================================================== -->
+
+        <section
+            id="capacity"
+            class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        HOSPITAL PANEL
+                    </p>
+
+                    <h1>
+                        Hospital Capacity
+                    </h1>
+
+                    <p>
+                        Update currently available hospital resources.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <h2>
+                    Update Availability
+                </h2>
+
+                <p class="form-description">
+                    Hospitals can update their available resources here.
+                </p>
+
+
+                <form id="capacityForm">
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+
+                            <label>
+                                Hospital
+                            </label>
+
+                            <select id="hospitalName">
+
+                                <option>
+                                    City General Hospital
+                                </option>
+
+                                <option>
+                                    Medicare Hospital
+                                </option>
+
+                                <option>
+                                    Life Care Hospital
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                ICU Beds
+                            </label>
+
+                            <input
+                                type="number"
+                                id="icuBeds"
+                                value="4"
+                                min="0">
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                General Beds
+                            </label>
+
+                            <input
+                                type="number"
+                                id="generalBeds"
+                                value="20"
+                                min="0">
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Emergency Beds
+                            </label>
+
+                            <input
+                                type="number"
+                                id="emergencyBeds"
+                                value="8"
+                                min="0">
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Ventilators
+                            </label>
+
+                            <input
+                                type="number"
+                                id="ventilators"
+                                value="6"
+                                min="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+
+                        ✓ Update Capacity
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div id="capacityResult"></div>
+
+
+            <div class="dashboard-card capacity-current">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h2>
+                            Current Availability
+                        </h2>
+
+                        <p>
+                            City General Hospital
+                        </p>
+                    </div>
+
+                    <span class="fresh-badge">
+                        Updated just now
+                    </span>
+
+                </div>
+
+
+                <div class="capacity-grid">
+
+                    <div class="capacity-box">
+                        <span>ICU</span>
+                        <strong id="displayICU">4</strong>
+                    </div>
+
+                    <div class="capacity-box">
+                        <span>General Beds</span>
+                        <strong id="displayGeneral">20</strong>
+                    </div>
+
+                    <div class="capacity-box">
+                        <span>Emergency</span>
+                        <strong id="displayEmergency">8</strong>
+                    </div>
+
+                    <div class="capacity-box">
+                        <span>Ventilators</span>
+                        <strong id="displayVentilator">6</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
