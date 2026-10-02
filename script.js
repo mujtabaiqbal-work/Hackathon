@@ -2,7 +2,7 @@
 // CareRoute - FRONTEND + MUJTABA API
 // ==========================================
 
-const API_BASE_URL = "https://hackathon-backend-7k3bwj4vh-tech-titans-4354.vercel.app/api";
+const API_BASE_URL = "https://hackathon-9gzp.vercel.app/api";
 
 
 // ==========================================
